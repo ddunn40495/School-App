@@ -8,6 +8,7 @@ import {
 import "./App.css";
 import "react-toastify/dist/ReactToastify.css";
 import { toast } from "react-toastify";
+import Testdb from "./containers/Test";
 
 /* Components */
 import StudentLogin from "./containers/user_authentication/StudentLogin";
@@ -57,17 +58,7 @@ function App() {
                 )
               }
             />
-            {/* <Route
-              exact
-              path='/register/student'
-              render={(props) =>
-                !isAuthenticated ? (
-                  <Register {...props} toogleAuth={toogleAuth} />
-                ) : (
-                  <Redirect to='/dashboard' />
-                )
-              }
-            /> */}
+            <Route exact path='/' render={() => <Testdb />} />
             <Route
               exact
               path='/student'

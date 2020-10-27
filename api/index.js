@@ -21,6 +21,15 @@ app.use("/api/student", studentController);
 const authController = require("./controllers/authorize_controller");
 app.use("/api/auth", authController);
 
+app.post("/api/log", async (req, res) => {
+  try {
+    const students = await pool.query("SELECT * FROM students");
+    res.json(students);
+  } catch (err) {
+    console.log(err);
+    res.send("500 Error");
+  }
+});
 // =======================================
 //              LISTENER
 // =======================================
