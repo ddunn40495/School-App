@@ -18,7 +18,7 @@ const StudentLogin = ({ toogleAuth }) => {
     event.preventDefault();
     try {
       const body = { username, password };
-      const res = await fetch("http://localhost:4000/auth/login/student", {
+      const res = await fetch("http://localhost:4000/api/auth/login/student", {
         method: "POST",
         headers: {
           "Content-type": "application/json",
@@ -37,11 +37,7 @@ const StudentLogin = ({ toogleAuth }) => {
         toast.error(response);
       }
     } catch (err) {
-      if (err) {
-        console.log(err);
-      } else {
-        console.log("200 Success");
-      }
+      console.log(err);
     }
   };
   return (
