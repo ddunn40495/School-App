@@ -1,7 +1,7 @@
 
 
 
--- CREATE TABLE students ( student_id SERIAL, first_name text, last_name text, username text, password text, email text, year text, PRIMARY KEY (student_id) );
+CREATE TABLE students ( student_id SERIAL, first_name text, last_name text, username text, password text, email text, year text, PRIMARY KEY (student_id) );
 
 -- SELECT 
 --    table_name, 
@@ -19,10 +19,19 @@ VALUES
       'Sam', 'Smith', 'ss01', 'password', 'ssmith@nomail.com', 'freshmman'
    );
 
+--    INSERT INTO
+--    students( first_name, last_name, username, password, email, year) 
+-- VALUES
+--    ($1, $2, $3, $4, $5, $6) RETURNING *;
+
+
 
    INSERT INTO
    students( first_name, last_name, username, password, email, year) 
 VALUES
+ (
+      'Sam', 'Smith', 'ss01', 'password', 'ssmith@nomail.com', 'freshmman'
+   ),
    (
       'Micheal', 'Sims', 'ss02', 'password', 'sims@nomail.com', 'freshmman'
    ),
