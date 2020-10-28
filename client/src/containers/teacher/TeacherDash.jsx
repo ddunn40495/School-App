@@ -1,6 +1,10 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useState, Fragment } from "react";
+
 import { toast } from "react-toastify";
 import { teacherDashboard } from "../../apis/url";
+import TeacherNav from "../../components/TeacherNav";
+import TeacherSideNav from "../../components/TeacherSideNav";
+import TeacherHome from "./TeacherHome";
 
 const TeacherDash = ({ toogleAuth }) => {
   /* State */
@@ -19,12 +23,12 @@ const TeacherDash = ({ toogleAuth }) => {
       });
 
       const response = await res.json();
-      console.log(response);
+      console.log(response.rows);
       console.log(teacherDashboard);
-      setFirstName(response.teacher_first_name);
-      setLastName(response.teacher_last_name);
-      setUsername(response.teacher_user_name);
-      setEmail(response.teacher_email);
+      setFirstName(response.rows[0].teacher_first_name);
+      setLastName(response.rows[0].teacher_last_name);
+      setUsername(response.rows[0].teacher_user_name);
+      setEmail(response.rows[0].teacher_email);
     } catch (err) {
       if (err) {
         console.log(err);
@@ -56,11 +60,18 @@ const TeacherDash = ({ toogleAuth }) => {
   }, []);
 
   return (
-    <div>
-      <h1>Teacher Dashboard</h1>
+    <Fragment>
+      <TeacherNav firstname={teacher_first_name} />
+      <div className='side-style'>
+        <TeacherSideNav firstname={teacher_first_name} />
+      </div>
 
-      <button onClick={(event) => logout(event)}>Logout</button>
-    </div>
+      <div className='container'>
+        <TeacherHome firstname={teacher_first_name} />
+
+        <button onClick={(event) => logout(event)}>Logout</button>
+      </div>
+    </Fragment>
   );
 };
 

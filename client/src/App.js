@@ -53,78 +53,76 @@ function App() {
   return (
     <Fragment>
       <Router>
-        <div className='container'>
-          <Switch>
-            <Route
-              exact
-              path='/login/student'
-              render={(props) =>
-                !isAuthenticated ? (
-                  <StudentLogin {...props} toogleAuth={toogleAuth} />
-                ) : (
-                  <Redirect to='/student' />
-                )
-              }
-            />
-            <Route
-              exact
-              path='/login/teacher'
-              render={(props) =>
-                !isAuthenticated ? (
-                  <TeacherLogin {...props} toogleAuth={toogleAuth} />
-                ) : (
-                  <Redirect to='/teacher' />
-                )
-              }
-            />
-            <Route exact path='/' render={() => <Testdb />} />
-            <Route
-              exact
-              path='/new/student'
-              render={(props) =>
-                !isAuthenticated ? (
-                  <NewStudent {...props} toogleAuth={toogleAuth} />
-                ) : (
-                  <Redirect to='/student' />
-                )
-              }
-            />
-            <Route
-              exact
-              path='/new/teacher'
-              render={(props) =>
-                !isAuthenticated ? (
-                  <NewTeacher {...props} toogleAuth={toogleAuth} />
-                ) : (
-                  <Redirect to='/teacher' />
-                )
-              }
-            />
+        <Switch>
+          <Route
+            exact
+            path='/login/student'
+            render={(props) =>
+              !isAuthenticated ? (
+                <StudentLogin {...props} toogleAuth={toogleAuth} />
+              ) : (
+                <Redirect to='/student' />
+              )
+            }
+          />
+          <Route
+            exact
+            path='/login/teacher'
+            render={(props) =>
+              !isAuthenticated ? (
+                <TeacherLogin {...props} toogleAuth={toogleAuth} />
+              ) : (
+                <Redirect to='/teacher' />
+              )
+            }
+          />
+          <Route exact path='/' render={() => <Testdb />} />
+          <Route
+            exact
+            path='/new/student'
+            render={(props) =>
+              !isAuthenticated ? (
+                <NewStudent {...props} toogleAuth={toogleAuth} />
+              ) : (
+                <Redirect to='/student' />
+              )
+            }
+          />
+          <Route
+            exact
+            path='/new/teacher'
+            render={(props) =>
+              !isAuthenticated ? (
+                <NewTeacher {...props} toogleAuth={toogleAuth} />
+              ) : (
+                <Redirect to='/teacher' />
+              )
+            }
+          />
 
-            <Route
-              exact
-              path='/student'
-              render={(props) =>
-                isAuthenticated ? (
-                  <StudentDash {...props} toogleAuth={toogleAuth} />
-                ) : (
-                  <Redirect to='/login/student' />
-                )
-              }
-            />
-            <Route
-              exact
-              path='/teacher'
-              render={(props) =>
-                isAuthenticated ? (
-                  <TeacherDash {...props} toogleAuth={toogleAuth} />
-                ) : (
-                  <Redirect to='/login/teacher' />
-                )
-              }
-            />
-          </Switch>
-        </div>
+          <Route
+            exact
+            path='/student'
+            render={(props) =>
+              isAuthenticated ? (
+                <StudentDash {...props} toogleAuth={toogleAuth} />
+              ) : (
+                <Redirect to='/login/student' />
+              )
+            }
+          />
+          <Route
+            exact
+            path='/teacher'
+            render={(props) =>
+              isAuthenticated ? (
+                <TeacherDash {...props} toogleAuth={toogleAuth} />
+              ) : (
+                <Redirect to='/login/teacher' />
+              )
+            }
+          />
+        </Switch>
       </Router>
     </Fragment>
   );
