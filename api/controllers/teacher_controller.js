@@ -1,6 +1,6 @@
 // =======================================
 //
-//           CONTROLLER
+//     Teacher      CONTROLLER
 //
 // =======================================
 
@@ -10,6 +10,7 @@
 const express = require("express");
 const router = express.Router();
 const pool = require("../models/db");
+const authorize = require("../middleware/authorization");
 // =======================================
 //              DATABASE
 // =======================================
@@ -17,18 +18,22 @@ const pool = require("../models/db");
 // =======================================
 //              ROUTES
 // =======================================
-//get every student in a class
-//need to add where clasue to take in param for what class
-app.get("/", async (req, res) => {
+
+router.post("/", authorize, async (req, res) => {
   try {
-    const allStudents = await pool.query(
-      "SELECT * FROM students JOIN student_courses ON student_courses.student_id = students.student_id JOIN course_instance ON course_instance.course_instance_id = student_courses.course_instance_id JOIN course ON course.course_id = course_instance.course_id JOIN department ON department.department_id = course.department_id WHERE course_instance.course_instance_id = 1"
+    const teacher = await pool.query(
+      "SELECT * FROM teachers WHERE teachers.teacher_id = $1",
+      [req.user.id]
     );
-    res.json(allStudents.rows);
+    res.json(teacher);
+    console.log(req);
   } catch (err) {
     console.error(err.message);
   }
 });
+
+//get every student in a class
+//need to add where clasue to take in param for what class
 /* ===========
 GET ROUTE
 ============= */

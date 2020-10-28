@@ -7,7 +7,7 @@
 /* This middleware checks to see if the email username and passwords are vaild when the user is making an account or login in */
 
 module.exports = (req, res, next) => {
-  const { email, username, password } = req.body;
+  const { student_email, student_user_name, student_password } = req.body;
 
   const isEmailValid = (userEmail) => {
     return /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/.test(userEmail);
@@ -21,16 +21,16 @@ module.exports = (req, res, next) => {
   };
 
   if (req.path === "/register/student") {
-    console.log(!email.length);
-    if (![email, username, password].every(Boolean)) {
+    console.log(!student_email.length);
+    if (![student_email, student_user_name, student_password].every(Boolean)) {
       return res.json("Missing Credentials");
-    } else if (!isEmailValid(email)) {
+    } else if (!isEmailValid(student_email)) {
       return res.json("Invalid Email");
     }
   } else if (req.path === "/login/student") {
-    if (![username, password].every(Boolean)) {
+    if (![student_user_name, student_password].every(Boolean)) {
       return res.json("Missing Credentials");
-    } else if (!isUsernameValid(username)) {
+    } else if (!isUsernameValid(student_user_name)) {
       return res.json("Invalid Username");
     }
   }

@@ -1,14 +1,15 @@
 import React, { Fragment, useState } from "react";
 import { Link, Redirect } from "react-router-dom";
 import { toast } from "react-toastify";
+import { studentLogin } from "../../apis/url";
 
 const StudentLogin = ({ toogleAuth }) => {
   /* State */
   const [inputs, setInputs] = useState({
-    username: "",
-    password: "",
+    student_user_name: "",
+    student_password: "",
   });
-  const { username, password } = inputs;
+  const { student_user_name, student_password } = inputs;
 
   const onChange = (event) => {
     setInputs({ ...inputs, [event.target.name]: event.target.value });
@@ -17,8 +18,8 @@ const StudentLogin = ({ toogleAuth }) => {
   const submitForm = async (event) => {
     event.preventDefault();
     try {
-      const body = { username, password };
-      const res = await fetch("http://localhost:4000/api/auth/login/student", {
+      const body = { student_user_name, student_password };
+      const res = await fetch(studentLogin, {
         method: "POST",
         headers: {
           "Content-type": "application/json",
@@ -42,25 +43,26 @@ const StudentLogin = ({ toogleAuth }) => {
   };
   return (
     <Fragment>
-      <h1 className='form-control'>Login</h1>
+      <h1 className='form-control'> Student Login</h1>
       <form onSubmit={submitForm}>
         <input
           type='text'
-          name='username'
-          value={username}
+          name='student_user_name'
+          value={student_user_name}
           onChange={(event) => onChange(event)}
           className='form-control'
         />
         <input
           type='password'
-          name='password'
-          value={password}
+          name='student_password'
+          value={student_password}
           onChange={(event) => onChange(event)}
           className='form-control'
         />
         <button class='btn btn-block'>Submit</button>
       </form>
-      {/* <Link to="/register">register</Link> */}
+      <a href='http://localhost:3000/new/student'> New Student</a>
+      <a href='http://localhost:3000/'>Home</a>
     </Fragment>
   );
 };

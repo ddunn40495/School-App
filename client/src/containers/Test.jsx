@@ -28,6 +28,10 @@ const Testdb = () => {
   return (
     <div>
       <h1>lol</h1>
+      <a href='http://localhost:3000/new/teacher'>New Teacher</a>
+      <a href='http://localhost:3000/login/teacher'>Teacher Login</a>
+      <a href='http://localhost:3000/new/student'> New Student</a>
+      <a href='http://localhost:3000/login/student'>Student Login</a>
     </div>
   );
 };
