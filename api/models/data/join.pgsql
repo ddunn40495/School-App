@@ -41,7 +41,6 @@ JOIN teachers ON teachers.teacher_id = course_instance.teacher_id WHERE students
 
 
 
-
 -- get all assignments from a student
 
 

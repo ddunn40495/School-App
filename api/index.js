@@ -14,8 +14,8 @@ const pool = require("./models/db");
 // =======================================
 //      CONTROLLERS
 // =======================================
-// const teacherController = require("./controllers/teacher_controller");
-// app.use("/api/teacher", teacherController);
+const teacherController = require("./controllers/teacher_controller");
+app.use("/api/teacher", teacherController);
 const studentController = require("./controllers/student_controller");
 app.use("/api/student", studentController);
 const authController = require("./controllers/authorize_controller");
