@@ -13,7 +13,15 @@ import TeacherSideNav from "../../components/TeacherSideNav";
 import TeacherHome from "./TeacherHome";
 
 const TeacherClasses = (props) => {
-  return <h3>yes</h3>;
+  return (
+    <Fragment>
+      <div className='row-divs' id='d1'></div>
+      <div className='row-divs' id='d2'></div>
+      <div className='row-divs' id='d3'>
+        <h3>{props.firstname}</h3>
+      </div>
+    </Fragment>
+  );
 };
 
 export default TeacherClasses;

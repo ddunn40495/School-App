@@ -75,8 +75,21 @@ const TeacherDash = ({ toogleAuth }) => {
         </div>
         <div className='contain'>
           <Switch>
-            <Route exact path='/teacher' component={TeacherHome} />
-            <Route exact path='/teacher/classes' component={TeacherClasses} />
+            <Route
+              exact
+              path='/teacher'
+              render={(props) => (
+                <TeacherHome {...props} firstname={teacher_first_name} />
+              )}
+            />
+
+            <Route
+              exact
+              path='/teacher/classes'
+              render={(props) => (
+                <TeacherClasses {...props} firstname={teacher_first_name} />
+              )}
+            />
           </Switch>
         </div>
       </Router>
