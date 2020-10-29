@@ -1,6 +1,7 @@
 import React, { useEffect, useState, Fragment } from "react";
 
 import { toast } from "react-toastify";
+import { Link } from "react-router-dom";
 
 const TeacherNav = (props) => {
   return (
@@ -18,17 +19,14 @@ const TeacherNav = (props) => {
               <a href='sass.html'>{props.firstname}</a>
             </li>
             <li>
-              <a href='badges.html'>Components</a>
-            </li>
-            <li>
-              <a href='collapsible.html'>JavaScript</a>
+              <a onClick={(event) => props.logout(event)}>Logout</a>
             </li>
           </ul>
         </div>
         <div className='nav-content'>
           <ul className='tabs tabs-transparent'>
             <li className='tab'>
-              <a href='#test1'>Test 1</a>
+              <Link to='/teacher/classes'>Classes</Link>
             </li>
             <li className='tab'>
               <a className='active' href='#test2'>

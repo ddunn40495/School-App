@@ -1,10 +1,17 @@
 import React, { useEffect, useState, Fragment } from "react";
-
+import {
+  BrowserRouter as Router,
+  Route,
+  Switch,
+  Redirect,
+  Link,
+} from "react-router-dom";
 import { toast } from "react-toastify";
 import { teacherDashboard } from "../../apis/url";
 import TeacherNav from "../../components/TeacherNav";
 import TeacherSideNav from "../../components/TeacherSideNav";
 import TeacherHome from "./TeacherHome";
+import TeacherClasses from "./TeacherClasses";
 
 const TeacherDash = ({ toogleAuth }) => {
   /* State */
@@ -61,16 +68,18 @@ const TeacherDash = ({ toogleAuth }) => {
 
   return (
     <Fragment>
-      <TeacherNav firstname={teacher_first_name} />
-      <div className='side-style'>
-        <TeacherSideNav firstname={teacher_first_name} />
-      </div>
-
-      <div className='container'>
-        <TeacherHome firstname={teacher_first_name} />
-
-        <button onClick={(event) => logout(event)}>Logout</button>
-      </div>
+      <Router>
+        <TeacherNav logout={logout} firstname={teacher_first_name} />
+        <div className='side-style'>
+          <TeacherSideNav firstname={teacher_first_name} />
+        </div>
+        <div className='contain'>
+          <Switch>
+            <Route exact path='/teacher' component={TeacherHome} />
+            <Route exact path='/teacher/classes' component={TeacherClasses} />
+          </Switch>
+        </div>
+      </Router>
     </Fragment>
   );
 };
