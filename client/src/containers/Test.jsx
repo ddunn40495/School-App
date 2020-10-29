@@ -1,6 +1,10 @@
 import React, { Fragment, useEffect, useState } from "react";
 import { toast } from "react-toastify";
 import { log } from "../apis/url";
+import TestSideNav from "../components/mdb/TestSideNav";
+import TestTeacherHome from "../components/mdb/TestTeacherHome";
+import TestTopNav1 from "../components/mdb/TestTopNav1";
+import TestTopNav2 from "../components/mdb/TestTopNav2";
 
 const Testdb = () => {
   const consoleLog = async () => {
@@ -27,45 +31,45 @@ const Testdb = () => {
   }, []);
   return (
     <Fragment>
-      <nav class='navbar navbar-expand-lg navbar-dark indigo'>
-        <a class='navbar-brand' href='#'>
-          Navbar w/ text
-        </a>
-        <button
-          class='navbar-toggler'
-          type='button'
-          data-toggle='collapse'
-          data-target='#navbarText'
-          aria-controls='navbarText'
-          aria-expanded='false'
-          aria-label='Toggle navigation'
-        >
-          <div class='navbar-toggler-icon'></div>
-        </button>
-        <div class='collapse navbar-collapse' id='navbarText'>
-          <ul class='navbar-nav mr-auto'>
-            <li class='nav-item active'>
-              <a class='nav-link' href='#'>
-                Home
-                <div class='sr-only'>(current)</div>
-              </a>
-            </li>
-            <li class='nav-item'>
-              <a class='nav-link' href='#'>
-                Features
-              </a>
-            </li>
-            <li class='nav-item'>
-              <a class='nav-link' href='#'>
-                Pricing
-              </a>
-            </li>
-          </ul>
-          <div class='navbar-text white-text'>
-            Navbar text with an inline element
+      {/*
+       */}
+      <div className='row'>
+        <div className='col-md-2 my-side'>
+          <TestSideNav />
+        </div>
+
+        <div className='col-md-10'>
+          <div className='row'>
+            <TestTopNav1 />
+            <TestTopNav2 />
+          </div>
+          <div className='row'>
+            {/* <Switch>
+            <Route
+              exact
+              path='/teacher'
+              render={(props) => (
+                <TeacherHome {...props} firstname={teacher_first_name} />
+              )}
+            />
+            <Route
+              exact
+              path='/teacher/classes'
+              render={(props) =>
+                !props.auth ? (
+                  <TeacherClasses {...props} toogleAuth={toogleAuth} />
+                ) : (
+                  <Redirect to='/login/teacher' />
+                )
+              }
+            />
+          </Switch> */}
+
+            {/* TESTING WITHOUT ROUTER */}
+            <TestTeacherHome />
           </div>
         </div>
-      </nav>
+      </div>
     </Fragment>
   );
 };

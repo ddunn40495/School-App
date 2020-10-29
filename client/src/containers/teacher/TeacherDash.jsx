@@ -12,6 +12,8 @@ import TeacherNav from "../../components/TeacherNav";
 import TeacherSideNav from "../../components/TeacherSideNav";
 import TeacherHome from "./TeacherHome";
 import TeacherClasses from "./TeacherClasses";
+import TeacherTopNav1 from "../../components/TeacherTopNav1";
+import TeacherTopNav2 from "../../components/TeacherTopNav2";
 
 const TeacherDash = ({ toogleAuth }) => {
   /* State */
@@ -19,6 +21,8 @@ const TeacherDash = ({ toogleAuth }) => {
   const [teacher_last_name, setLastName] = useState("");
   const [teacher_user_name, setUsername] = useState("");
   const [teacher_email, setEmail] = useState("");
+  const [allClasses, setAllClasses] = useState("");
+  const [teacherInfo, setTeacherInfo] = useState("");
 
   /* Get Teacher info that will be rendered on the dashboard */
 
@@ -32,6 +36,7 @@ const TeacherDash = ({ toogleAuth }) => {
       const response = await res.json();
       console.log(response.rows);
       console.log(teacherDashboard);
+      setTeacherInfo(response.rows);
       setFirstName(response.rows[0].teacher_first_name);
       setLastName(response.rows[0].teacher_last_name);
       setUsername(response.rows[0].teacher_user_name);
@@ -70,31 +75,76 @@ const TeacherDash = ({ toogleAuth }) => {
   return (
     <Fragment>
       <Router>
-        <TeacherNav logout={logout} firstname={teacher_first_name} />
-        <div className='side-style'>
-          <TeacherSideNav firstname={teacher_first_name} />
-        </div>
-        <div className='contain'>
-          <Switch>
-            <Route
-              exact
-              path='/teacher'
-              render={(props) => (
-                <TeacherHome {...props} firstname={teacher_first_name} />
-              )}
-            />
-            <Route
-              exact
-              path='/teacher/classes'
-              render={(props) =>
-                !props.auth ? (
-                  <TeacherClasses {...props} toogleAuth={toogleAuth} />
-                ) : (
-                  <Redirect to='/login/teacher' />
-                )
-              }
-            />
-          </Switch>
+        <div className='row'>
+          <div className='col-md-2 my-side'>
+            <TeacherSideNav logout={logout} firstname={teacher_first_name} />
+          </div>
+
+          <div className='col-md-10'>
+            <div className='row'>
+              <TeacherTopNav1 firstname={teacher_first_name} />
+              <TeacherTopNav2 firstname={teacher_first_name} />
+            </div>
+            <div className='row'>
+              <Switch>
+                <Route
+                  exact
+                  path='/teacher'
+                  render={(props) => (
+                    <TeacherHome {...props} firstname={teacher_first_name} />
+                  )}
+                />
+                <Route
+                  exact
+                  path='/teacher/classes'
+                  render={(props) =>
+                    !props.auth ? (
+                      <TeacherClasses
+                        {...props}
+                        info={teacherInfo}
+                        toogleAuth={toogleAuth}
+                      />
+                    ) : (
+                      <Redirect to='/login/teacher' />
+                    )
+                  }
+                />
+                <Route
+                  exact
+                  path='/teacher/assignments'
+                  render={(props) =>
+                    !props.auth ? (
+                      <TeacherClasses {...props} toogleAuth={toogleAuth} />
+                    ) : (
+                      <Redirect to='/login/teacher' />
+                    )
+                  }
+                />
+                <Route
+                  exact
+                  path='/teacher/grades'
+                  render={(props) =>
+                    !props.auth ? (
+                      <TeacherClasses {...props} toogleAuth={toogleAuth} />
+                    ) : (
+                      <Redirect to='/login/teacher' />
+                    )
+                  }
+                />
+                <Route
+                  exact
+                  path='/teacher/students'
+                  render={(props) =>
+                    !props.auth ? (
+                      <TeacherClasses {...props} toogleAuth={toogleAuth} />
+                    ) : (
+                      <Redirect to='/login/teacher' />
+                    )
+                  }
+                />
+              </Switch>
+            </div>
+          </div>
         </div>
       </Router>
     </Fragment>

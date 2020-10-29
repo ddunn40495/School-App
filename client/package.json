@@ -10,6 +10,7 @@
     "@testing-library/react": "^9.3.2",
     "@testing-library/user-event": "^7.1.2",
     "axios": "^0.20.0",
+    "mdb-ui-kit": "git+https://oauth2:n3b8cMm239n8GszxUVK6@git.mdbootstrap.com/mdb/standard/mdb-ui-kit-pro-essential",
     "react": "^17.0.1",
     "react-dom": "^17.0.1",
     "react-router-dom": "^5.2.0",

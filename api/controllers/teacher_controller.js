@@ -1,4 +1,3 @@
-// =======================================
 //
 //     Teacher      CONTROLLER
 //
@@ -44,7 +43,7 @@ POST ROUTE
 ============= */
 //CREATE NEW COURSE
 
-router.post("/course/new", authorize, async (req, res) => {
+router.post("/course/new", async (req, res) => {
   const { course_name, department_id } = req.body;
 
   try {

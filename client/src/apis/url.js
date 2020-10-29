@@ -41,7 +41,10 @@ const newCourse =
   process.env.NODE_ENV === "production"
     ? "/api/teacher/course/new"
     : "http://localhost:4000/api/teacher/course/new";
-
+const newClass =
+  process.env.NODE_ENV === "production"
+    ? "/api/teacher/class/new"
+    : "http://localhost:4000/api/teacher/class/new";
 export {
   studentDashboard,
   teacherDashboard,
@@ -50,6 +53,7 @@ export {
   studentLogin,
   teacherLogin,
   newCourse,
+  newClass,
   auth,
   log,
 };

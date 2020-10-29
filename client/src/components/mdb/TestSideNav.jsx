@@ -1,7 +1,7 @@
 import React, { Fragment, useEffect, useState } from "react";
 import { toast } from "react-toastify";
 
-const TeacherSideNav = (props) => {
+const TestSideNav = () => {
   return (
     <Fragment>
       <div
@@ -15,7 +15,7 @@ const TeacherSideNav = (props) => {
         <div className='mt-4'>
           <div id='header-content' className='pl-3'>
             <h4>
-              <span>{props.firstname}</span>
+              <span>Ann Smith</span>
             </h4>
             <p>ann_s@mdbootstrap.com</p>
           </div>
@@ -138,10 +138,7 @@ const TeacherSideNav = (props) => {
               </a>
             </li>
             <li className='sidenav-item'>
-              <a
-                className='sidenav-link'
-                onClick={(event) => props.logout(event)}
-              >
+              <a className='sidenav-link'>
                 <i className='fas fa-user-astronaut fa-fw mr-3'></i>Log out
               </a>
             </li>
@@ -156,4 +153,4 @@ const TeacherSideNav = (props) => {
   );
 };
 
-export default TeacherSideNav;
+export default TestSideNav;

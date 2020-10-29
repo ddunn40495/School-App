@@ -13,6 +13,8 @@ import "react-toastify/dist/ReactToastify.css";
 import { toast } from "react-toastify";
 import Testdb from "./containers/Test";
 
+/* CSS Dependencies */
+import * as mdb from "mdb-ui-kit";
 /* Student Components */
 import StudentLogin from "./containers/user_authentication/StudentLogin";
 import StudentDash from "./containers/student/StudentDash";
@@ -50,6 +52,8 @@ function App() {
   }, []);
 
   const [isAuthenticated, setIsAuthenticated] = useState(false);
+
+  /*  ssh-keygen -f school.pem -y > school.pub */
 
   return (
     <Fragment>
