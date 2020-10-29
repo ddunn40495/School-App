@@ -1,38 +1,70 @@
-.App {
-  text-align: center;
+/*Teacher Dash CSS */
+
+/* Med breakpoints Tablet size basic divs set */
+
+.teacher-sidenav {
+  align-self: flex-start;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+.first-row-divs,
+.second-row-divs {
+  height: 20px;
+  width: 20px;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
-}
-
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
+.contain {
   display: flex;
-  flex-direction: column;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: flex-start;
   align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+  margin-left: 100px;
+  height: 100%;
 }
 
-.App-link {
-  color: #61dafb;
+.side-style {
+  align-self: flex-start;
+  height: 100%;
+  position: fixed;
+  z-index: 1;
+  top: 20;
+  left: 0;
+  background-color: red;
+  overflow-x: hidden;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+#d1 {
+  background-color: yellow;
+  height: 20rem;
+  width: 20rem;
 }
+#d2 {
+  background-color: green;
+  height: 15rem;
+  width: 15rem;
+}
+#d3 {
+  background-color: red;
+  height: 20rem;
+  width: 20rem;
+  align-self: flex-end;
+}
+#d4 {
+  background-color: orange;
+  height: 35rem;
+  width: 30rem;
+}
+#d5 {
+  background-color: blue;
+  height: 20rem;
+  width: 15rem;
+}
+
+.row-divs {
+  flex-grow: 2;
+  height: 60px;
+  width: 60px;
+  margin: 10px;
+}
+
+/* Med breakpoints Tablet size basic divs set */
