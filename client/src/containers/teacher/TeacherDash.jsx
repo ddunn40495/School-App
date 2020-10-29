@@ -45,6 +45,7 @@ const TeacherDash = ({ toogleAuth }) => {
     }
   };
 
+  const makeNewCourse = async () => {};
   /* Teacher Logout  */
 
   const logout = async (event) => {
@@ -82,13 +83,16 @@ const TeacherDash = ({ toogleAuth }) => {
                 <TeacherHome {...props} firstname={teacher_first_name} />
               )}
             />
-
             <Route
               exact
               path='/teacher/classes'
-              render={(props) => (
-                <TeacherClasses {...props} firstname={teacher_first_name} />
-              )}
+              render={(props) =>
+                !props.auth ? (
+                  <TeacherClasses {...props} toogleAuth={toogleAuth} />
+                ) : (
+                  <Redirect to='/login/teacher' />
+                )
+              }
             />
           </Switch>
         </div>

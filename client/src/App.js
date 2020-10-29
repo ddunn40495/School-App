@@ -8,6 +8,7 @@ import {
 } from "react-router-dom";
 import { auth } from "./apis/url";
 import "./App.css";
+
 import "react-toastify/dist/ReactToastify.css";
 import { toast } from "react-toastify";
 import Testdb from "./containers/Test";
@@ -59,7 +60,12 @@ function App() {
             path='/login/student'
             render={(props) =>
               !isAuthenticated ? (
-                <StudentLogin {...props} toogleAuth={toogleAuth} />
+                <StudentLogin
+                  {...props}
+                  auth={isAuthenticated}
+                  auth={isAuthenticated}
+                  toogleAuth={toogleAuth}
+                />
               ) : (
                 <Redirect to='/student' />
               )
@@ -70,7 +76,11 @@ function App() {
             path='/login/teacher'
             render={(props) =>
               !isAuthenticated ? (
-                <TeacherLogin {...props} toogleAuth={toogleAuth} />
+                <TeacherLogin
+                  {...props}
+                  auth={isAuthenticated}
+                  toogleAuth={toogleAuth}
+                />
               ) : (
                 <Redirect to='/teacher' />
               )
@@ -82,7 +92,11 @@ function App() {
             path='/new/student'
             render={(props) =>
               !isAuthenticated ? (
-                <NewStudent {...props} toogleAuth={toogleAuth} />
+                <NewStudent
+                  {...props}
+                  auth={isAuthenticated}
+                  toogleAuth={toogleAuth}
+                />
               ) : (
                 <Redirect to='/student' />
               )
@@ -93,7 +107,11 @@ function App() {
             path='/new/teacher'
             render={(props) =>
               !isAuthenticated ? (
-                <NewTeacher {...props} toogleAuth={toogleAuth} />
+                <NewTeacher
+                  {...props}
+                  auth={isAuthenticated}
+                  toogleAuth={toogleAuth}
+                />
               ) : (
                 <Redirect to='/teacher' />
               )
@@ -105,7 +123,11 @@ function App() {
             path='/student'
             render={(props) =>
               isAuthenticated ? (
-                <StudentDash {...props} toogleAuth={toogleAuth} />
+                <StudentDash
+                  {...props}
+                  auth={isAuthenticated}
+                  toogleAuth={toogleAuth}
+                />
               ) : (
                 <Redirect to='/login/student' />
               )
@@ -116,7 +138,11 @@ function App() {
             path='/teacher'
             render={(props) =>
               isAuthenticated ? (
-                <TeacherDash {...props} toogleAuth={toogleAuth} />
+                <TeacherDash
+                  {...props}
+                  auth={isAuthenticated}
+                  toogleAuth={toogleAuth}
+                />
               ) : (
                 <Redirect to='/login/teacher' />
               )

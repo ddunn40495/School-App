@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { Fragment, useEffect, useState } from "react";
 import { toast } from "react-toastify";
 import { log } from "../apis/url";
 
@@ -26,13 +26,47 @@ const Testdb = () => {
     consoleLog();
   }, []);
   return (
-    <div>
-      <h1>lol</h1>
-      <a href='http://localhost:3000/new/teacher'>New Teacher</a>
-      <a href='http://localhost:3000/login/teacher'>Teacher Login</a>
-      <a href='http://localhost:3000/new/student'> New Student</a>
-      <a href='http://localhost:3000/login/student'>Student Login</a>
-    </div>
+    <Fragment>
+      <nav class='navbar navbar-expand-lg navbar-dark indigo'>
+        <a class='navbar-brand' href='#'>
+          Navbar w/ text
+        </a>
+        <button
+          class='navbar-toggler'
+          type='button'
+          data-toggle='collapse'
+          data-target='#navbarText'
+          aria-controls='navbarText'
+          aria-expanded='false'
+          aria-label='Toggle navigation'
+        >
+          <div class='navbar-toggler-icon'></div>
+        </button>
+        <div class='collapse navbar-collapse' id='navbarText'>
+          <ul class='navbar-nav mr-auto'>
+            <li class='nav-item active'>
+              <a class='nav-link' href='#'>
+                Home
+                <div class='sr-only'>(current)</div>
+              </a>
+            </li>
+            <li class='nav-item'>
+              <a class='nav-link' href='#'>
+                Features
+              </a>
+            </li>
+            <li class='nav-item'>
+              <a class='nav-link' href='#'>
+                Pricing
+              </a>
+            </li>
+          </ul>
+          <div class='navbar-text white-text'>
+            Navbar text with an inline element
+          </div>
+        </div>
+      </nav>
+    </Fragment>
   );
 };
 

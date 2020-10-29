@@ -118,8 +118,9 @@ const NewTeacher = ({ toogleAuth }) => {
           Submit
         </Button>
       </form>
-      <a href='http://localhost:3000/login/teacher'>Teacher Login</a>
-      <a href='http://localhost:3000/'>Home</a>
+      <Link to='/login/teacher'> Login</Link>
+
+      <Link to='/'> Home</Link>
     </Fragment>
   );
 };

@@ -36,6 +36,12 @@ const log =
   process.env.NODE_ENV === "production"
     ? "/api/log"
     : "http://localhost:4000/api/log";
+
+const newCourse =
+  process.env.NODE_ENV === "production"
+    ? "/api/teacher/course/new"
+    : "http://localhost:4000/api/teacher/course/new";
+
 export {
   studentDashboard,
   teacherDashboard,
@@ -43,6 +49,7 @@ export {
   teacherRegister,
   studentLogin,
   teacherLogin,
+  newCourse,
   auth,
   log,
 };

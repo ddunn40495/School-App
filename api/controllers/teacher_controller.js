@@ -42,8 +42,26 @@ GET ROUTE
 /* ===========
 POST ROUTE
 ============= */
-//CREATE
+//CREATE NEW COURSE
 
+router.post("/course/new", authorize, async (req, res) => {
+  const { course_name, department_id } = req.body;
+
+  try {
+    let newCourse = await pool.query(
+      "INSERT INTO courses (course_name, department_id) VALUES ( $1, $2) RETURNING *",
+      [course_name, department_id]
+    );
+
+    console.log(newCourse);
+
+    let allCourses = await pool.query("SELECT * FROM courses");
+    res.json(allCourses);
+  } catch (err) {
+    console.log(err);
+    res.send("500 Error");
+  }
+});
 /* ===========
 GET ROUTE
 ============= */
