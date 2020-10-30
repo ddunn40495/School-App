@@ -118,9 +118,19 @@ const NewTeacher = ({ toogleAuth }) => {
           Submit
         </Button>
       </form>
-      <Link to='/login/teacher'> Login</Link>
+      <Link to='/login/teacher'>
+        {" "}
+        <button type='button' class='btn btn-primary btn-lg ml-1'>
+          Teacher Login
+        </button>
+      </Link>
 
-      <Link to='/'> Home</Link>
+      <Link to='/'>
+        {" "}
+        <button type='button' class='btn btn-primary btn-lg ml-1'>
+          Home
+        </button>
+      </Link>
     </Fragment>
   );
 };
