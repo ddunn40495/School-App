@@ -1,70 +1,28 @@
+@import "~mdb-ui-kit/css/mdb.min.css";
+
 /*Teacher Dash CSS */
 
-/* Med breakpoints Tablet size basic divs set */
-
-.teacher-sidenav {
-  align-self: flex-start;
+.my-side {
+  transform: translateX(0px);
 }
 
-.first-row-divs,
-.second-row-divs {
-  height: 20px;
-  width: 20px;
+@media (max-width: 450px) {
+  body {
+    height: 950px !important;
+  }
+}
+@media (min-width: 550px) and (max-width: 750px) {
+  body {
+    height: 1100px !important;
+  }
+}
+@media (min-width: 800px) and (max-width: 990px) {
+  body {
+    height: 600px !important;
+  }
 }
 
-.contain {
-  display: flex;
-  flex-direction: row;
-  flex-wrap: wrap;
-  justify-content: flex-start;
-  align-items: center;
-  margin-left: 100px;
-  height: 100%;
+body {
+  background-image: url("https://images.unsplash.com/photo-1513542789411-b6a5d4f31634?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1267&q=80");
+  height: 100vh;
 }
-
-.side-style {
-  align-self: flex-start;
-  height: 100%;
-  position: fixed;
-  z-index: 1;
-  top: 20;
-  left: 0;
-  background-color: red;
-  overflow-x: hidden;
-}
-
-#d1 {
-  background-color: yellow;
-  height: 20rem;
-  width: 20rem;
-}
-#d2 {
-  background-color: green;
-  height: 15rem;
-  width: 15rem;
-}
-#d3 {
-  background-color: red;
-  height: 20rem;
-  width: 20rem;
-  align-self: flex-end;
-}
-#d4 {
-  background-color: orange;
-  height: 35rem;
-  width: 30rem;
-}
-#d5 {
-  background-color: blue;
-  height: 20rem;
-  width: 15rem;
-}
-
-.row-divs {
-  flex-grow: 2;
-  height: 60px;
-  width: 60px;
-  margin: 10px;
-}
-
-/* Med breakpoints Tablet size basic divs set */

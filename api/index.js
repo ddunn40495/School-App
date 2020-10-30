@@ -20,6 +20,8 @@ const studentController = require("./controllers/student_controller");
 app.use("/api/student", studentController);
 const authController = require("./controllers/authorize_controller");
 app.use("/api/auth", authController);
+const openController = require("./controllers/open_routes_controller");
+app.use("/api", openController);
 
 // =======================================
 //              LISTENER

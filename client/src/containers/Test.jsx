@@ -1,6 +1,10 @@
-import React, { useEffect, useState } from "react";
+import React, { Fragment, useEffect, useState } from "react";
 import { toast } from "react-toastify";
 import { log } from "../apis/url";
+import TestSideNav from "../components/mdb/TestSideNav";
+import TestTeacherHome from "../components/mdb/TestTeacherHome";
+import TestTopNav1 from "../components/mdb/TestTopNav1";
+import TestTopNav2 from "../components/mdb/TestTopNav2";
 
 const Testdb = () => {
   const consoleLog = async () => {
@@ -26,13 +30,47 @@ const Testdb = () => {
     consoleLog();
   }, []);
   return (
-    <div>
-      <h1>lol</h1>
-      <a href='http://localhost:3000/new/teacher'>New Teacher</a>
-      <a href='http://localhost:3000/login/teacher'>Teacher Login</a>
-      <a href='http://localhost:3000/new/student'> New Student</a>
-      <a href='http://localhost:3000/login/student'>Student Login</a>
-    </div>
+    <Fragment>
+      {/*
+       */}
+      <div className='row'>
+        <div className='col-md-2 my-side'>
+          <TestSideNav />
+        </div>
+
+        <div className='col-md-10'>
+          <div className='row'>
+            <TestTopNav1 />
+            <TestTopNav2 />
+          </div>
+          <div className='row'>
+            {/* <Switch>
+            <Route
+              exact
+              path='/teacher'
+              render={(props) => (
+                <TeacherHome {...props} firstname={teacher_first_name} />
+              )}
+            />
+            <Route
+              exact
+              path='/teacher/classes'
+              render={(props) =>
+                !props.auth ? (
+                  <TeacherClasses {...props} toogleAuth={toogleAuth} />
+                ) : (
+                  <Redirect to='/login/teacher' />
+                )
+              }
+            />
+          </Switch> */}
+
+            {/* TESTING WITHOUT ROUTER */}
+            <TestTeacherHome />
+          </div>
+        </div>
+      </div>
+    </Fragment>
   );
 };
 

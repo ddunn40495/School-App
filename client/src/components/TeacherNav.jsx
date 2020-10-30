@@ -16,7 +16,7 @@ const TeacherNav = (props) => {
           </a>
           <ul id='nav-mobile' className='right'>
             <li>
-              <a href='sass.html'>{props.firstname}</a>
+              <Link to='/teacher/profile'>{props.firstname}</Link>
             </li>
             <li>
               <a onClick={(event) => props.logout(event)}>Logout</a>
@@ -29,15 +29,13 @@ const TeacherNav = (props) => {
               <Link to='/teacher/classes'>Classes</Link>
             </li>
             <li className='tab'>
-              <a className='active' href='#test2'>
-                Test 2
-              </a>
-            </li>
-            <li className='tab disabled'>
-              <a href='#test3'>Disabled Tab</a>
+              <Link to='/teacher/assignments'>Assignments</Link>
             </li>
             <li className='tab'>
-              <a href='#test4'>Test 4</a>
+              <Link to='/teacher/assignments'>Grades</Link>
+            </li>
+            <li className='tab'>
+              <Link to='/teacher/students'>Students</Link>
             </li>
           </ul>
         </div>

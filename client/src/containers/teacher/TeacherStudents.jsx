@@ -2,7 +2,7 @@ import React, { useEffect, useState, Fragment } from "react";
 
 import { toast } from "react-toastify";
 
-const TeacherHome = (props) => {
+const TeacherStudents = (props) => {
   return (
     <Fragment>
       <div className='row'>
@@ -106,4 +106,4 @@ const TeacherHome = (props) => {
   );
 };
 
-export default TeacherHome;
+export default TeacherStudents;

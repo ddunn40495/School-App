@@ -1,8 +1,7 @@
-import React, { useEffect, useState, Fragment } from "react";
-
+import React, { Fragment, useEffect, useState } from "react";
 import { toast } from "react-toastify";
 
-const TeacherHome = (props) => {
+const TestTeacherHome = () => {
   return (
     <Fragment>
       <div className='row'>
@@ -10,9 +9,12 @@ const TeacherHome = (props) => {
           <div class='card'>
             <div class='card-body'>
               <h4 class='card-title'>
-                <a>Teacher Name</a>
+                <a>Card title</a>
               </h4>
-              <p class='card-text'>{props.firstname}</p>
+              <p class='card-text'>
+                Some quick example text to build on the card title and make up
+                the bulk of the card's content.
+              </p>
               <a href='#' class='btn btn-primary'>
                 Button
               </a>
@@ -106,4 +108,4 @@ const TeacherHome = (props) => {
   );
 };
 
-export default TeacherHome;
+export default TestTeacherHome;
