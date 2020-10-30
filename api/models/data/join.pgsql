@@ -62,3 +62,21 @@ JOIN teachers ON teachers.teacher_id = course_instance.teacher_id WHERE students
 
 
 SELECT * FROM students;
+
+
+
+     SELECT * FROM departments JOIN courses ON courses.department_id = departments.department_id;
+
+
+SELECT course_name FROM courses WHERE courses.course_id = 2;
+
+SELECT * FROM course_instance;
+SELECT * FROM teachers;
+
+INSERT INTO course_instance(
+	 course_id, course_instance_period, teacher_id, course_instance_name)
+	VALUES ( '3', '1', '14', 'test-1-1');
+
+
+
+   SELECT * FROM departments JOIN courses ON courses.department_id = departments.department_id JOIN course_instance ON course_instance.course_id = courses.course_id;

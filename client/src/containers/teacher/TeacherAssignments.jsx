@@ -1,11 +1,12 @@
+import { Link } from "react-router-dom";
 import React, { useEffect, useState, Fragment } from "react";
 
 import { toast } from "react-toastify";
-
+import { newAssignment } from "../../apis/url";
 const TeacherAssignments = (props) => {
   /* State */
-  const [allClasses, setAllClasses] = useState("");
-  const [myClasses, setLastName] = useState("");
+  const [allClasses, setAllClasses] = useState(props.classList);
+  const [myClasses, setMyClasses] = useState(props.myclassList);
 
   const [inputs, setInputs] = useState({
     assignment_name: "",
@@ -19,7 +20,7 @@ const TeacherAssignments = (props) => {
     setInputs({ ...inputs, [event.target.name]: event.target.value });
   };
 
-  const submitForm = async (event) => {
+  const makeAssignment = async (event) => {
     event.preventDefault();
     try {
       const body = {
@@ -32,7 +33,7 @@ const TeacherAssignments = (props) => {
       console.log(course_instance_id);
       console.log(assignment_type);
 
-      const res = await fetch(newCourse, {
+      const res = await fetch(newAssignment, {
         method: "POST",
         headers: {
           "Content-type": "application/json",
@@ -42,6 +43,7 @@ const TeacherAssignments = (props) => {
 
       const response = await res.json();
       console.log(response);
+      console.log(newAssignment);
     } catch (err) {
       console.log(err);
     }
@@ -51,10 +53,11 @@ const TeacherAssignments = (props) => {
     console.log(assignment_name);
     console.log(course_instance_id);
     console.log(assignment_type);
+    console.log(props.classList);
   };
   return (
     <Fragment>
-      <h1>New Course</h1>
+      <h1>New Assignment</h1>
       <div className='row'>
         <div className='col'>
           <div class='card'>
@@ -69,15 +72,15 @@ const TeacherAssignments = (props) => {
             </div>
           </div>
         </div>
-        {/* <button onClick={logInputs}>LOG</button> */}
+        <button onClick={logInputs}>LOG</button>
         <div className='col'>
           <div class='card'>
             <div class='card-body'>
               <form
-                onSubmit={submitForm}
+                onSubmit={makeAssignment}
                 class='text-center border border-light p-5'
               >
-                <p class='h4 mb-4'>Make New Course</p>
+                <p class='h4 mb-4'>Make New Assignment</p>
 
                 <div class='form-row mb-4'>
                   <div class='col'>
@@ -102,7 +105,14 @@ const TeacherAssignments = (props) => {
                       <option value='' disabled selected>
                         Which Class
                       </option>
-                      <option value='1'>Math</option>
+                      {props.classList.map((myClass) => (
+                        <option
+                          key={myClass.course_instance_id}
+                          value={myClass.course_instance_id}
+                        >
+                          {myClass.course_instance_name}
+                        </option>
+                      ))}
                     </select>
                   </div>
                   <div class='col'>

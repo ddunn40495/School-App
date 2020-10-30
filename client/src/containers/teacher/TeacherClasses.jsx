@@ -24,15 +24,13 @@ import TeacherHome from "./TeacherHome";
 
 const TeacherClasses = (props) => {
   /* State */
-  const [teacherId, setTeacherId] = useState(props.info[0].teacher_id);
 
-  const [myClasses, setMyClasses] = useState("");
   const [inputs, setInputs] = useState({
     course_name: "",
     department_id: "",
     course_id: "",
     course_instance_period: "",
-    teacher_id: teacherId,
+    teacher_id: "",
   });
 
   console.log(props.info[0].teacher_id);
@@ -111,6 +109,8 @@ const TeacherClasses = (props) => {
       `This is Teacher ID that is being submitted on the POST route to make a new class ====================${teacher_id}==============`
     );
     console.log(props.info);
+    console.log(props.theTeachers.rows);
+    console.log(props.courseList);
   };
   return (
     <Fragment>
@@ -196,18 +196,64 @@ const TeacherClasses = (props) => {
                       <option value='' disabled selected>
                         Choose Course
                       </option>
-                      <option value='1'>Test-1</option>
+                      {props.courseList.map((course) => (
+                        <option key={course.course_id} value={course.course_id}>
+                          {course.course_name}
+                        </option>
+                      ))}
                     </select>
                   </div>
                 </div>
-                <input
-                  type='number'
-                  class='form-control'
-                  value={teacherId}
-                  name='teacher_id'
-                ></input>
+                <div class='form-row mb-4'>
+                  <div class='col'>
+                    <select
+                      name='teacher_id'
+                      type='number'
+                      value={teacher_id}
+                      onChange={(event) => onChange(event)}
+                      class='form-control'
+                      class='mdb-select md-form'
+                    >
+                      <option value='' disabled selected>
+                        Choose Teacher
+                      </option>
+                      {props.theTeachers.rows.map((teacher) => (
+                        <option
+                          key={teacher.teacher_id}
+                          value={teacher.teacher_id}
+                        >
+                          {teacher.teacher_first_name}
+                        </option>
+                      ))}
+                    </select>
+                  </div>
+                </div>
+
+                <div class='form-row mb-4'>
+                  <div class='col'>
+                    <select
+                      name='course_instance_period'
+                      type='number'
+                      value={course_instance_period}
+                      onChange={(event) => onChange(event)}
+                      class='form-control'
+                      class='mdb-select md-form'
+                    >
+                      <option value='' disabled selected>
+                        Choose Period
+                      </option>
+                      <option value='1'>First Period</option>
+                      <option value='2'>Second Period</option>
+                      <option value='3'>Third Period</option>
+                      <option value='4'>Fourth Period</option>
+                      <option value='5'>Fifth Period</option>
+                      <option value='6'>Sixth Period</option>
+                      <option value='7'>Seventh Period</option>
+                    </select>
+                  </div>
+                </div>
                 <button class='btn btn-info my-4 btn-block' type='submit'>
-                  Make New Course
+                  Make New Class
                 </button>
               </form>
             </div>

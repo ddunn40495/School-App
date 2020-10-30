@@ -19,3 +19,4 @@ INSERT INTO courses(
      ('Business'),
      ('Computer Science'),
      ('Homeroom');
+
