@@ -142,6 +142,26 @@ router.post("/assignment/new", async (req, res) => {
     res.send("500 Error");
   }
 });
+router.post("/assignment/inst/new", async (req, res) => {
+  const { assignment_id, student_id, assignment_instance_completed } = req.body;
+
+  try {
+    let inst = await pool.query(
+      "INSERT INTO assignment_instance (assignment_id, student_id, assignment_instance_completed) VALUES ( $1, $2, false) RETURNING *",
+      [assignment_id, student_id]
+    );
+
+    console.log(inst);
+
+    let assignmentInstList = await pool.query(
+      "SELECT * FROM assignment_instance"
+    );
+    res.json(assignmentInstList);
+  } catch (err) {
+    console.log(err);
+    res.send("500 Error");
+  }
+});
 /* ===========
   PUT ROUTE
   ============= */

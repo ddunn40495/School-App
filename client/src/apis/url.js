@@ -1,76 +1,76 @@
 const studentDashboard =
   process.env.NODE_ENV === "production"
-    ? "/api/student"
+    ? "https://homeroomclass.net/api/student"
     : "http://localhost:4000/api/student";
 
 const teacherDashboard =
   process.env.NODE_ENV === "production"
-    ? "/api/teacher"
+    ? "https://homeroomclass.net/api/teacher"
     : "http://localhost:4000/api/teacher";
 
 const studentRegister =
   process.env.NODE_ENV === "production"
-    ? "/api/auth/register/student"
+    ? "https://homeroomclass.net/api/auth/register/student"
     : "http://localhost:4000/api/auth/register/student";
 
 const teacherRegister =
   process.env.NODE_ENV === "production"
-    ? "/api/auth/register/teacher"
+    ? "https://homeroomclass.net/api/auth/register/teacher"
     : "http://localhost:4000/api/auth/register/teacher";
 
 const studentLogin =
   process.env.NODE_ENV === "production"
-    ? "/api/auth/login/student"
+    ? "https://homeroomclass.net/api/auth/login/student"
     : "http://localhost:4000/api/auth/login/student";
 const teacherLogin =
   process.env.NODE_ENV === "production"
-    ? "/api/auth/login/teacher"
+    ? "https://homeroomclass.net/api/auth/login/teacher"
     : "http://localhost:4000/api/auth/login/teacher";
 
 const auth =
   process.env.NODE_ENV === "production"
-    ? "/api/auth/verify"
+    ? "https://homeroomclass.net/api/auth/verify"
     : "http://localhost:4000/api/auth/verify";
 
 const log =
   process.env.NODE_ENV === "production"
-    ? "/api/log"
+    ? "https://homeroomclass.net/api/log"
     : "http://localhost:4000/api/log";
 
 const newCourse =
   process.env.NODE_ENV === "production"
-    ? "/api/teacher/course/new"
+    ? "https://homeroomclass.net/api/teacher/course/new"
     : "http://localhost:4000/api/teacher/course/new";
 const newClass =
   process.env.NODE_ENV === "production"
-    ? "/api/teacher/class/new"
+    ? "https://homeroomclass.net/api/teacher/class/new"
     : "http://localhost:4000/api/teacher/class/new";
 const newAssignment =
   process.env.NODE_ENV === "production"
-    ? "/assignment/new"
+    ? "https://homeroomclass.net/assignment/new"
     : "http://localhost:4000/api/teacher/assignment/new";
 
 const Courses =
   process.env.NODE_ENV === "production"
-    ? "/api/course/all"
+    ? "https://homeroomclass.net/api/course/all"
     : "http://localhost:4000/api/course/all";
 
 const Classes =
   process.env.NODE_ENV === "production"
-    ? "/api/class/all"
+    ? "https://homeroomclass.net/api/class/all"
     : "http://localhost:4000/api/class/all";
 const onlyMyClasses =
   process.env.NODE_ENV === "production"
-    ? "/api/class/me"
+    ? "https://homeroomclass.net/api/class/me"
     : "http://localhost:4000/api/class/me";
 
 const Departments =
   process.env.NODE_ENV === "production"
-    ? "/api/department/all"
+    ? "https://homeroomclass.net/api/department/all"
     : "http://localhost:4000/api/department/all";
 const Teachers =
   process.env.NODE_ENV === "production"
-    ? "/api/teacher/all"
+    ? "https://homeroomclass.net/api/teacher/all"
     : "http://localhost:4000/api/teacher/all";
 
 export {
