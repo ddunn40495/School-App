@@ -1,76 +1,76 @@
 const studentDashboard =
   process.env.NODE_ENV === "production"
-    ? "https://cors-anywhere.herokuapp.com/api/student"
+    ? "/api/student"
     : "http://localhost:4000/api/student";
 
 const teacherDashboard =
   process.env.NODE_ENV === "production"
-    ? "https://cors-anywhere.herokuapp.com/api/teacher"
+    ? "/api/teacher"
     : "http://localhost:4000/api/teacher";
 
 const studentRegister =
   process.env.NODE_ENV === "production"
-    ? "https://cors-anywhere.herokuapp.com/api/auth/register/student"
+    ? "/api/auth/register/student"
     : "http://localhost:4000/api/auth/register/student";
 
 const teacherRegister =
   process.env.NODE_ENV === "production"
-    ? "https://cors-anywhere.herokuapp.com/api/auth/register/teacher"
+    ? "/api/auth/register/teacher"
     : "http://localhost:4000/api/auth/register/teacher";
 
 const studentLogin =
   process.env.NODE_ENV === "production"
-    ? "https://cors-anywhere.herokuapp.com/api/auth/login/student"
+    ? "/api/auth/login/student"
     : "http://localhost:4000/api/auth/login/student";
 const teacherLogin =
   process.env.NODE_ENV === "production"
-    ? "https://cors-anywhere.herokuapp.com/api/auth/login/teacher"
+    ? "/api/auth/login/teacher"
     : "http://localhost:4000/api/auth/login/teacher";
 
 const auth =
   process.env.NODE_ENV === "production"
-    ? "https://cors-anywhere.herokuapp.com/api/auth/verify"
+    ? "/api/auth/verify"
     : "http://localhost:4000/api/auth/verify";
 
 const log =
   process.env.NODE_ENV === "production"
-    ? "https://cors-anywhere.herokuapp.com/api/log"
+    ? "/api/log"
     : "http://localhost:4000/api/log";
 
 const newCourse =
   process.env.NODE_ENV === "production"
-    ? "https://cors-anywhere.herokuapp.com/api/teacher/course/new"
+    ? "/api/teacher/course/new"
     : "http://localhost:4000/api/teacher/course/new";
 const newClass =
   process.env.NODE_ENV === "production"
-    ? "https://cors-anywhere.herokuapp.com/api/teacher/class/new"
+    ? "/api/teacher/class/new"
     : "http://localhost:4000/api/teacher/class/new";
 const newAssignment =
   process.env.NODE_ENV === "production"
-    ? "https://cors-anywhere.herokuapp.com/assignment/new"
+    ? "/assignment/new"
     : "http://localhost:4000/api/teacher/assignment/new";
 
 const Courses =
   process.env.NODE_ENV === "production"
-    ? "https://cors-anywhere.herokuapp.com/api/course/all"
+    ? "/api/course/all"
     : "http://localhost:4000/api/course/all";
 
 const Classes =
   process.env.NODE_ENV === "production"
-    ? "https://cors-anywhere.herokuapp.com/api/class/all"
+    ? "/api/class/all"
     : "http://localhost:4000/api/class/all";
 const onlyMyClasses =
   process.env.NODE_ENV === "production"
-    ? "https://cors-anywhere.herokuapp.com/api/class/me"
+    ? "/api/class/me"
     : "http://localhost:4000/api/class/me";
 
 const Departments =
   process.env.NODE_ENV === "production"
-    ? "https://cors-anywhere.herokuapp.com/api/department/all"
+    ? "/api/department/all"
     : "http://localhost:4000/api/department/all";
 const Teachers =
   process.env.NODE_ENV === "production"
-    ? "https://cors-anywhere.herokuapp.com/api/teacher/all"
+    ? "/api/teacher/all"
     : "http://localhost:4000/api/teacher/all";
 
 export {
