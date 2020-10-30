@@ -25,6 +25,9 @@ import TeacherLogin from "./containers/user_authentication/TeacherLogin";
 import TeacherDash from "./containers/teacher/TeacherDash";
 import NewTeacher from "./containers/user_authentication/NewTeacher";
 
+/* Home Component */
+import Home from "./containers/splash/Home";
+
 /* Main App Component */
 function App() {
   const checkAuth = async () => {
@@ -90,7 +93,7 @@ function App() {
               )
             }
           />
-          <Route exact path='/' render={() => <Testdb />} />
+          <Route exact path='/' render={() => <Home />} />
           <Route
             exact
             path='/new/student'
