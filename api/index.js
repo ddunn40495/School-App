@@ -12,23 +12,23 @@ const pool = require("./models/db");
 // =======================================
 //      Cors
 // =======================================
-const cors = require("cors");
-const whitelist = [
-  "http://localhost:3000",
-  "http://localhost:4000",
-  "https://homeroomclass.net",
-];
-const corsOptions = {
-  origin: function (origin, callback) {
-    if (whitelist.indexOf(origin) !== -1) {
-      callback(null, true);
-    } else {
-      callback(new Error("Not allowed by CORS"));
-    }
-  },
-};
+// const cors = require("cors");
+// const whitelist = [
+//   "http://localhost:3000",
+//   "http://localhost:4000",
+//   "https://homeroomclass.net",
+// ];
+// const corsOptions = {
+//   origin: function (origin, callback) {
+//     if (whitelist.indexOf(origin) !== -1) {
+//       callback(null, true);
+//     } else {
+//       callback(new Error("Not allowed by CORS"));
+//     }
+//   },
+// };
 
-app.use(cors(corsOptions));
+// app.use(cors(corsOptions));
 
 // =======================================
 //      CONTROLLERS
