@@ -3,4 +3,6 @@ SELECT * FROM students JOIN student_courses ON student_courses.student_id = stud
 
 INSERT INTO assignments(
 	 assignment_name, course_instance_id, assignment_type)
-	VALUES ('test homework', '3', 'homework');
+	VALUES ('test homework', '13', 'homework');
+
+	SELECT * FROM assignments;

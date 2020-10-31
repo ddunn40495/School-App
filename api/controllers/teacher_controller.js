@@ -133,30 +133,31 @@ router.post("/assignment/new", async (req, res) => {
       [assignment_name, course_instance_id, assignment_type]
     );
 
-    console.log(assignment);
+    console.log(assignment.rows[0]);
 
-    let assignmentList = await pool.query("SELECT * FROM assignments");
-    res.json(assignmentList);
+    let shareAssignment = await pool.query(
+      "INSERT INTO assignment_instance (assignment_id, student_id)  SELECT assignments.assignment_id, students.student_id FROM students JOIN student_courses ON student_courses.student_id = students.student_id JOIN course_instance ON course_instance.course_instance_id = student_courses.course_instance_id JOIN courses ON courses.course_id = course_instance.course_id JOIN assignments ON assignments.course_instance_id = course_instance.course_instance_id WHERE assignments.assignment_id = $1 AND course_instance.course_instance_id = $2",
+      [assignment.rows[0].assignment_id, assignment.rows[0].course_instance_id]
+    );
+    let allInstances = await pool.query(
+      "SELECT * FROM assignment_instance JOIN assignments ON assignments.assignment_id = assignment_instance.assignment_id JOIN course_instance ON course_instance.course_instance_id = assignments.course_instance_id JOIN student_courses ON student_courses.course_instance_id = course_instance.course_instance_id JOIN students ON students.student_id = student_courses.student_id"
+    );
+
+    res.json(allInstances);
   } catch (err) {
     console.log(err);
     res.send("500 Error");
   }
 });
-router.post("/assignment/inst/new", async (req, res) => {
-  const { assignment_id, student_id, assignment_instance_completed } = req.body;
+router.post("/assignment/inst/all", async (req, res) => {
+  const { assignment_id, student_id, kids } = req.body;
 
   try {
-    let inst = await pool.query(
-      "INSERT INTO assignment_instance (assignment_id, student_id, assignment_instance_completed) VALUES ( $1, $2, false) RETURNING *",
-      [assignment_id, student_id]
+    let allInstances = await pool.query(
+      "SELECT * FROM assignment_instance JOIN assignments ON assignments.assignment_id = assignment_instance.assignment_id JOIN course_instance ON course_instance.course_instance_id = assignments.course_instance_id JOIN student_courses ON student_courses.course_instance_id = course_instance.course_instance_id JOIN students ON students.student_id = student_courses.student_id"
     );
 
-    console.log(inst);
-
-    let assignmentInstList = await pool.query(
-      "SELECT * FROM assignment_instance"
-    );
-    res.json(assignmentInstList);
+    res.json(allInstances);
   } catch (err) {
     console.log(err);
     res.send("500 Error");

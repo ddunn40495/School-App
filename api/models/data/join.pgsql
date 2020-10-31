@@ -57,7 +57,7 @@ JOIN teachers ON teachers.teacher_id = course_instance.teacher_id WHERE students
    WHERE course_instance.course_instance_id = 1;
 
 
-   SELECT * FROM assignment;
+   SELECT * FROM assignments;
 
 INSERT INTO student_courses(
 	 student_id, course_instance_id)
@@ -67,7 +67,7 @@ INSERT INTO student_courses(
 
 SELECT * FROM students;
 
-SELECT students.student_id FROM students JOIN student_courses ON student_courses.student_id = students.student_id JOIN course_instance ON course_instance.course_instance_id = student_courses.course_instance_id JOIN courses ON courses.course_id = course_instance.course_id;
+SELECT students.student_id, students.student_first_name, courses.course_name, course_instance.course_instance_name, course_instance.course_instance_id, assignments.assignment_id, assignments.assignment_name FROM students JOIN student_courses ON student_courses.student_id = students.student_id JOIN course_instance ON course_instance.course_instance_id = student_courses.course_instance_id JOIN courses ON courses.course_id = course_instance.course_id JOIN assignments ON assignments.course_instance_id = course_instance.course_instance_id;
 
      SELECT * FROM departments JOIN courses ON courses.department_id = departments.department_id;
 
@@ -84,3 +84,12 @@ INSERT INTO course_instance(
 
 
    SELECT * FROM departments JOIN courses ON courses.department_id = departments.department_id JOIN course_instance ON course_instance.course_id = courses.course_id;
+
+/* Route For Assignment Instance */
+   SELECT assignments.assignment_id, students.student_id FROM students JOIN student_courses ON student_courses.student_id = students.student_id JOIN course_instance ON course_instance.course_instance_id = student_courses.course_instance_id JOIN courses ON courses.course_id = course_instance.course_id JOIN assignments ON assignments.course_instance_id = course_instance.course_instance_id WHERE assignments.assignment_id = 4 AND course_instance.course_instance_id = 12;
+
+/* Oooooooooh yessssssssss */
+   INSERT INTO assignment_instance (assignment_id, student_id)  SELECT assignments.assignment_id, students.student_id FROM students JOIN student_courses ON student_courses.student_id = students.student_id JOIN course_instance ON course_instance.course_instance_id = student_courses.course_instance_id JOIN courses ON courses.course_id = course_instance.course_id JOIN assignments ON assignments.course_instance_id = course_instance.course_instance_id WHERE assignments.assignment_id = 4 AND course_instance.course_instance_id = 12;
+
+
+   SELECT * FROM assignment_instance JOIN assignments ON assignments.assignment_id = assignment_instance.assignment_id JOIN course_instance ON course_instance.course_instance_id = assignments.course_instance_id JOIN student_courses ON student_courses.course_instance_id = course_instance.course_instance_id JOIN students ON students.student_id = student_courses.student_id WHERE course_instance.course_instance_id = 12;

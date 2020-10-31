@@ -12,9 +12,10 @@ const TeacherAssignments = (props) => {
     assignment_name: "",
     course_instance_id: "",
     assignment_type: "",
+    kids: [],
   });
 
-  const { assignment_name, course_instance_id, assignment_type } = inputs;
+  const { assignment_name, course_instance_id, assignment_type, kids } = inputs;
 
   const onChange = (event) => {
     setInputs({ ...inputs, [event.target.name]: event.target.value });
