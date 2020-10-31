@@ -1,112 +1,124 @@
 import React, { useEffect, useState, Fragment } from "react";
 
 import { toast } from "react-toastify";
+import { Link } from "react-router-dom";
 
 const TeacherGrades = (props) => {
-  /* State */
-  const [allClasses, setAllClasses] = useState("");
-  const [myClasses, setLastName] = useState("");
-
-  const [inputs, setInputs] = useState({
-    course_name: "",
-    department_id: "",
-  });
-
-  const { course_name, department_id } = inputs;
-
-  const onChange = (event) => {
-    setInputs({ ...inputs, [event.target.name]: event.target.value });
-  };
-
-  const submitForm = async (event) => {
-    event.preventDefault();
-    try {
-      const body = {
-        course_name,
-        department_id,
-      };
-
-      console.log(course_name);
-      console.log(department_id);
-
-      const res = await fetch(newCourse, {
-        method: "POST",
-        headers: {
-          "Content-type": "application/json",
-        },
-        body: JSON.stringify(body),
-      });
-
-      const response = await res.json();
-      console.log(response);
-    } catch (err) {
-      console.log(err);
-    }
-  };
-
-  const logInputs = () => {
-    console.log(course_name);
-    console.log(department_id);
-  };
   return (
     <Fragment>
-      <h1>New Course</h1>
       <div className='row'>
         <div className='col'>
           <div class='card'>
             <div class='card-body'>
-              <h4 class='card-title'>
-                <a>Teacher Name</a>
-              </h4>
-              <p class='card-text'>{props.firstname}</p>
-              <a href='#' class='btn btn-primary'>
-                Button
-              </a>
+              <select class='select'>
+                <option value='1'>Product 1</option>
+                <option value='2'>Product 2</option>
+                <option value='3'>Product 3</option>
+                <option value='4'>Product 4</option>
+                <option value='5'>Product 5</option>
+              </select>
+              <label class='form-label select-label'>Product</label>
             </div>
           </div>
         </div>
-        {/* <button onClick={logInputs}>LOG</button> */}
+      </div>
+      <div className='row'>
         <div className='col'>
           <div class='card'>
+            <div class='card-header text-center py-3 bg-light border-0'>
+              <strong>Sales Performance KPIs</strong>
+            </div>
             <div class='card-body'>
-              <form
-                onSubmit={submitForm}
-                class='text-center border border-light p-5'
-              >
-                <p class='h4 mb-4'>Make New Course</p>
-
-                <div class='form-row mb-4'>
-                  <div class='col'>
-                    <input
-                      type='text'
-                      name='course_name'
-                      value={course_name}
-                      onChange={(event) => onChange(event)}
-                      class='form-control'
-                      placeholder='course_name'
-                    ></input>
-                  </div>
-                  <div class='col'>
-                    <select
-                      name='department_id'
-                      type='number'
-                      value={department_id}
-                      onChange={(event) => onChange(event)}
-                      class='form-control'
-                      class='mdb-select md-form'
-                    >
-                      <option value='' disabled selected>
-                        Choose Department
-                      </option>
-                      <option value='1'>Math</option>
-                    </select>
-                  </div>
-                </div>
-
-                <button class='btn btn-info my-4 btn-block' type='submit'>
-                  Make New Course
-                </button>
-              </form>
+              <div class='table-responsive'>
+                <table class='table table-hover text-nowrap'>
+                  <thead>
+                    <tr>
+                      <th scope='col'></th>
+                      <th scope='col'>Product Detail Views</th>
+                      <th scope='col'>Unique Purchases</th>
+                      <th scope='col'>Quantity</th>
+                      <th scope='col'>Product Revenue</th>
+                      <th scope='col'>Avg. Price</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr>
+                      <th scope='row'>Value</th>
+                      <td>18,492</td>
+                      <td>228</td>
+                      <td>350</td>
+                      <td>$4,787.64</td>
+                      <td>$13.68</td>
+                    </tr>
+                    <tr>
+                      <th scope='row'>Percentage change</th>
+                      <td>
+                        <span class='text-danger'>
+                          <i class='fas fa-caret-down mr-1'></i>
+                          <span>-48.8%%</span>
+                        </span>
+                      </td>
+                      <td>
+                        <span class='text-success'>
+                          <i class='fas fa-caret-up mr-1'></i>
+                          <span>14.0%</span>
+                        </span>
+                      </td>
+                      <td>
+                        <span class='text-success'>
+                          <i class='fas fa-caret-up mr-1'></i>
+                          <span>46.4%</span>
+                        </span>
+                      </td>
+                      <td>
+                        <span class='text-success'>
+                          <i class='fas fa-caret-up mr-1'></i>
+                          <span>29.6%</span>
+                        </span>
+                      </td>
+                      <td>
+                        <span class='text-danger'>
+                          <i class='fas fa-caret-down mr-1'></i>
+                          <span>-11.5%</span>
+                        </span>
+                      </td>
+                    </tr>
+                    <tr>
+                      <th scope='row'>Absolute change</th>
+                      <td>
+                        <span class='text-danger'>
+                          <i class='fas fa-caret-down mr-1'></i>
+                          <span>-17,654</span>
+                        </span>
+                      </td>
+                      <td>
+                        <span class='text-success'>
+                          <i class='fas fa-caret-up mr-1'></i>
+                          <span>28</span>
+                        </span>
+                      </td>
+                      <td>
+                        <span class='text-success'>
+                          <i class='fas fa-caret-up mr-1'></i>
+                          <span>111</span>
+                        </span>
+                      </td>
+                      <td>
+                        <span class='text-success'>
+                          <i class='fas fa-caret-up mr-1'></i>
+                          <span>$1,092.72</span>
+                        </span>
+                      </td>
+                      <td>
+                        <span class='text-danger'>
+                          <i class='fas fa-caret-down mr-1'></i>
+                          <span>$-1.78</span>
+                        </span>
+                      </td>
+                    </tr>
+                  </tbody>
+                </table>
+              </div>
             </div>
           </div>
         </div>

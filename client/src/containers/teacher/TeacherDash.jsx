@@ -22,7 +22,7 @@ import TeacherClasses from "./TeacherClasses";
 import TeacherTopNav1 from "../../components/TeacherTopNav1";
 import TeacherTopNav2 from "../../components/TeacherTopNav2";
 import TeacherAssignments from "./TeacherAssignments";
-
+import TeacherGrades from "./TeacherGrades";
 const TeacherDash = ({ toogleAuth }) => {
   /* State */
   const [teacher_first_name, setFirstName] = useState("");
@@ -258,7 +258,7 @@ const TeacherDash = ({ toogleAuth }) => {
                   path='/teacher/grades'
                   render={(props) =>
                     !props.auth ? (
-                      <TeacherClasses
+                      <TeacherGrades
                         {...props}
                         myId={teacherId}
                         subjects={allDepartments}

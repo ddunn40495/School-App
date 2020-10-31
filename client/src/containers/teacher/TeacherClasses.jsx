@@ -214,7 +214,7 @@ const TeacherClasses = (props) => {
                       class='form-control'
                       class='mdb-select md-form'
                     >
-                      <option value='' disabled selected>
+                      <option disabled selected>
                         Choose Teacher
                       </option>
                       {props.theTeachers.rows.map((teacher) => (
